@@ -27,5 +27,11 @@ pipeline {
         always {
             echo "sending emails out...."
         }
+        success {
+            echo "success........"
+        }
+        failure {
+            echo "failure............"
+        }
     }
 }
