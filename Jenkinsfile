@@ -22,5 +22,10 @@ pipeline {
               echo "deploy the application....."
             }
         }
-    }   
+    } 
+    post {
+        always {
+            echo "sending emails out...."
+        }
+    }
 }
