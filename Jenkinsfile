@@ -43,7 +43,7 @@ pipeline {
         stage("deploy") {
             steps {
                 echo "deploy the application....."
-                echo "Use credentails for the server: ${SERVER_CREDENTIALS}"
+                //echo "Use credentails for the server: ${SERVER_CREDENTIALS}"
                 //withCredential([ 
                 //    usernamePassword(credentials:"server-credentials", usernameVariable: USER, passwordVariable: PWD)
                 //]) {
