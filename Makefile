@@ -1,5 +1,5 @@
 SHELL=/usr/bin/env bash -Eeuxo pipefail
-.DEFAULT_GOALS := list
+.DEFAULT_GOAL := list
 
 .PHONY: list
 list: 
