@@ -1,5 +1,8 @@
 //CODE_CHANGE = getGITChanges()
 // localhost:8080//
+
+def gv
+
 pipeline {
     agent any
    // environment {
@@ -15,7 +18,11 @@ pipeline {
     stages {
         stage("init") {
             steps {
-              echo "init the application....."
+                script {
+                    gv = load "script.groovy"
+                    gv.initApp()
+                }
+                
             }
         }
         stage("build") {
@@ -26,8 +33,11 @@ pipeline {
            // }
             
             steps {
-                echo "build the application....."
+                
                 //echo "building version:${NEW_VERSION}
+                script {
+                    gv.buildApp()
+                }
             }
         }
         stage("test") {
@@ -37,7 +47,10 @@ pipeline {
             //    }
             //}
             steps {
-                echo "test the application..... ${BRANCH_NAME}"
+                
+                 script {
+                    gv.testApp()
+                }
             }
         }
         stage("deploy") {
@@ -49,7 +62,10 @@ pipeline {
                 //]) {
                 //    sh "some script: ${USER}, ${PWD}"
                 //}
-                echo "deploying version ${params.VERSION}"
+                
+                script {
+                    gv.deployApp()
+                }
             }
         }
     } 
