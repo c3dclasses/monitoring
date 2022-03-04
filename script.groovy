@@ -15,3 +15,5 @@ def deployApp() {
   echo "builing the application"
   echo "deploying version ${params.VERSION}"
 }
+
+return this
