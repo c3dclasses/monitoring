@@ -21,9 +21,15 @@ pipeline {
                 script {
                     gv = load "script.groovy"
                     gv.initApp()
+                    
+                    sh """
+                make list
+            """
                 }
                 
             }
+            
+            
         }
         stage("build") {
            //  when {
@@ -32,13 +38,20 @@ pipeline {
            //     }
            // }
             
+            
             steps {
                 
                 //echo "building version:${NEW_VERSION}
                 script {
                     gv.buildApp()
                 }
+                
+                
+                sh """
+                    make list
+                """
             }
+            
         }
         stage("test") {
             //when {
